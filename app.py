@@ -8,21 +8,6 @@ app = Flask(__name__)
 
 
 # When someone visits the / in our app run home function and return the message
-@app.route('/')
-def home():
-    return 'The site is up and running!'
-
-
-@app.route('/hello')
-def say_hello():
-    return render_template('hello.html', username='world')
-
-
-@app.route('/hello/<name>')
-def say_hell_to(name):
-    return render_template('hello.html', username=name)
-
-
 @app.route('/pokemon')
 def pokemon_list():
     return render_template('pokemon_list.html', pokemon_list=helpers.get_random_pokemon_list())
