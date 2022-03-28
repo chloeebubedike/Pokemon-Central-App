@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokemon</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="bg-dark text-light">
+    <h1 class="text-info text-capitalize">{{ pokemon['name'] }}</h1>
+    <img width="96" height="96" src="{{ pokemon['sprites']['front_default'] }}">
+    <p>Base experience: <span class="text-info">{{ pokemon['base_experience'] }}</span></p>
+    <p>Height: <span class="text-info">{{ pokemon['height']}} &bullet; Weight: {{ pokemon['weight'] }}</span></p>
+    <p> Type:
+            {% for type_info in pokemon['types'] %}
+                <span class="text-info">{{type_info['type']['name']}} {{ 'and' if not loop.last }}</span>
+            {% endfor %}
+
+    </p>
+    <br>
+    <br>
+    <a class="btn btn-outline-light" href="/pokemon">Back to home</a>
+</body>
+</html>
